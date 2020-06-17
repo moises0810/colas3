@@ -1,0 +1,81 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+import java.util.Scanner;
+/**
+ *
+ * @author Moisés
+ */
+public class Colas_3 {
+int m=100, i, n=10, aux;
+int num[]=new int[n];
+    public void llenar(){
+         num[i] =(int) (Math.random() * m);
+                   for ( i=0; n> i; i++) {
+                num[i] =(int) (Math.random() * m);
+                   for(int j=0; j<i;j++){
+                       if(num[i]==num[j]){
+                           i--;
+                       }
+                   }
+           }
+    }   
+    public void mostrar(){
+        if(m>0){
+            System.out.println("mostrando valores: \n");
+                    for(i = 0; i < n; i++){
+                    System.out.println("cola=" +num[i]);
+                    }
+                    }else{
+                        System.out.println("cola vacia");
+                    }
+    }
+    public void ordenar(){
+         for(int j=0;j<n;j++){
+                        for( i=0;i<n-1;i++){
+                            if(num[i]>num[i+1]){
+                             aux=num[i];
+                             num[i]=num[i+1];
+                             num[i+1]=aux;
+                            }
+                        }
+                    } 
+                {
+    System.out.println("valores ordenados");
+           }
+    }
+    public void vaciar(){
+         m=0;
+    System.out.println("la cola se ha vaciado");
+    }
+    public static void main(String[] args) {
+        Scanner leer=new Scanner(System.in);
+       Colas_3 cola= new Colas_3();
+        int opc;             
+        do{
+              System.out.println("\n1. llenar");
+              System.out.println("2. mostrar");
+              System.out.println("3. ordenar");
+              System.out.println("4. vaciar");
+              System.out.println("5. salir\n");    
+        opc = leer.nextInt();
+        switch (opc){
+            case 1:
+               cola.llenar();
+                break;               
+            case 2:
+              cola.mostrar();              
+                break;
+            case 3:
+                cola.ordenar();
+                break;
+            case 4:
+                cola.vaciar();
+                break;
+        }
+      }
+      while (5!=opc);  
+    }    
+}
